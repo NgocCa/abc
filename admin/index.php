@@ -1,4 +1,6 @@
-<?php require('common/header.php'); ?>
+<?php
+include ('../connect.php');
+require('common/header.php'); ?>
 <body>
     <?php require('common/navbar.php'); ?>
     <div class="container">
