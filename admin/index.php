@@ -1,5 +1,9 @@
 <?php
-include ('../connect.php');
+session_start();
+if(!isset($_SESSION['login_user'])){
+    echo "<script>location.href='login.php';</script>";
+}
+    
 require('common/header.php'); ?>
 <body>
     <?php require('common/navbar.php'); ?>

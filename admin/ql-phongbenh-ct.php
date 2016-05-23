@@ -15,23 +15,23 @@
             <div class="btn-group">
                 <input id="search" name="search" type="text" class="form-control" placeholder="Tìm kiếm" value=""/>
             </div>
+            <input type="button" value="Thêm" class="btn-primary"/>
         </div>
-
         <table class="table table-bordered table-hover table-responsive">
             <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Cột 1</th>
-                    <th>Cột 2</th>
-                    <th>Cột 3</th>
+                    <th>Mã phòng</th>
+                    <th>Số lượng giường</th>
+                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>1</td>
+                    <td>101/C1</td>
+                    <td>10</td>
+                    <td>Xem chi tiết | <br/> Sửa | Xóa</td>
                 </tr>
   
             </tbody>

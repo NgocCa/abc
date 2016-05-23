@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2016 at 07:36 AM
+-- Generation Time: May 23, 2016 at 12:03 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -543,6 +543,18 @@ INSERT INTO `luong_cb` (`THOI_DIEM_BD_HIEU_LUC`, `THOI_DIEM_KT_HIEU_LUC`, `LUONG
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nam_giuong`
+--
+
+CREATE TABLE `nam_giuong` (
+  `SO_GIUONG` char(5) CHARACTER SET utf16 COLLATE utf16_bin NOT NULL,
+  `MSBN` char(10) CHARACTER SET utf16 COLLATE utf16_bin NOT NULL,
+  `THOI_DIEM` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nhan_vien`
 --
 
@@ -565,15 +577,15 @@ CREATE TABLE `nhan_vien` (
 
 INSERT INTO `nhan_vien` (`MSNV`, `HO_TEN`, `LA_NAM`, `NGAY_SINH`, `NGAY_BD_LAM`, `NGAY_THOI_VIEC`, `DIEN_GIAI`, `TAI_KHOAN`, `MAT_KHAU`, `QUYEN_SD`) VALUES
 ('NV001', 'Nguyễn Văn Nam', 1, '1972-01-01', '1995-01-01', '0000-00-00', '', 'quantri', '202cb962ac59075b964b07152d234b70', '1'),
-('NV002', 'Trần Thanh Bình', 1, '1972-01-02', '1995-01-02', '0000-00-00', '', 'bacsi1', '202cb962ac59075b964b07152d234b70', '2'),
+('NV002', 'Trần Thanh Bình', 1, '1972-01-02', '1995-01-02', '0000-00-00', '', 'bacsi1', '202cb962ac59075b964b07152d234b70', '1'),
 ('NV003', 'Nguyễn Thị Kim Tiến', 0, '1972-01-03', '1995-01-03', '0000-00-00', '', 'tiepnhan', '202cb962ac59075b964b07152d234b70', '3'),
 ('NV004', 'Võ Hoàng Khải', 1, '1972-01-04', '1995-01-04', '0000-00-00', '', '', '', ''),
 ('NV005', 'Trịnh Tấn Phát', 1, '1972-01-05', '1995-01-05', '0000-00-00', '', '', '', ''),
-('NV006', 'Phan Như Hảo', 0, '1972-01-06', '1995-01-06', '0000-00-00', '', 'yta', '202cb962ac59075b964b07152d234b70', '4'),
+('NV006', 'Phan Như Hảo', 0, '1972-01-06', '1995-01-06', '0000-00-00', '', 'tiepnhan1', '202cb962ac59075b964b07152d234b70', '3'),
 ('NV007', 'Phạm Cao Hiền', 1, '1972-01-07', '1995-01-07', '0000-00-00', '', '', '', ''),
 ('NV008', 'Trần Thị Thanh Ngọc', 0, '1972-01-08', '1995-01-08', '0000-00-00', '', '', '', ''),
-('NV009', 'Nguyễn Hoàng Tấn', 1, '1972-01-09', '1995-01-09', '0000-00-00', '', 'bacsi2', '202cb962ac59075b964b07152d234b70', ''),
-('NV010', 'Cao Xuân Sơn', 1, '1972-01-10', '1995-01-10', '0000-00-00', '', 'bacsi3', '202cb962ac59075b964b07152d234b70', '');
+('NV009', 'Nguyễn Hoàng Tấn', 1, '1972-01-09', '1995-01-09', '0000-00-00', '', 'bacsi2', '202cb962ac59075b964b07152d234b70', '2'),
+('NV010', 'Cao Xuân Sơn', 1, '1972-01-10', '1995-01-10', '0000-00-00', '', 'bacsi3', '202cb962ac59075b964b07152d234b70', '2');
 
 -- --------------------------------------------------------
 
@@ -916,6 +928,13 @@ ALTER TABLE `luong_cb`
   ADD KEY `FK_THOI_DIEM_KT` (`THOI_DIEM_KT_HIEU_LUC`);
 
 --
+-- Indexes for table `nam_giuong`
+--
+ALTER TABLE `nam_giuong`
+  ADD PRIMARY KEY (`SO_GIUONG`,`MSBN`),
+  ADD KEY `FK_BENH_NHAN` (`MSBN`);
+
+--
 -- Indexes for table `nhan_vien`
 --
 ALTER TABLE `nhan_vien`
@@ -1053,6 +1072,13 @@ ALTER TABLE `kham`
 ALTER TABLE `luong_cb`
   ADD CONSTRAINT `FK_THOI_DIEM_BD` FOREIGN KEY (`THOI_DIEM_BD_HIEU_LUC`) REFERENCES `thoi_diem` (`THOI_DIEM_HIEU_LUC`),
   ADD CONSTRAINT `FK_THOI_DIEM_KT` FOREIGN KEY (`THOI_DIEM_KT_HIEU_LUC`) REFERENCES `thoi_diem` (`THOI_DIEM_HIEU_LUC`);
+
+--
+-- Constraints for table `nam_giuong`
+--
+ALTER TABLE `nam_giuong`
+  ADD CONSTRAINT `FK_BENH_NHAN` FOREIGN KEY (`MSBN`) REFERENCES `benh_nhan` (`MSBN`),
+  ADD CONSTRAINT `FK_NAM_GIUONG` FOREIGN KEY (`SO_GIUONG`) REFERENCES `giuong` (`SO_GIUONG`);
 
 --
 -- Constraints for table `nv_co_cv`

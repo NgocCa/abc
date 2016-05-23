@@ -8,20 +8,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="admin.php"><i class="glyphicon glyphicon-th-large"></i>&nbsp;Trang chủ</a>
+            <a class="navbar-brand" href="index.php"><i class="glyphicon glyphicon-th-large"></i>&nbsp;Trang chủ</a>
         </div>
 
-        
+        <?php
+            if(isset($_SESSION['login_user'])){
+        ?>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" style="font-size: 15px">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào, abc<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào, <?=$_SESSION['login_user']["hoten"]?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="glyphicon glyphicon-user"></i>&nbsp;Hồ sơ</a></li>
                             <li class="divider"></li>
                             <li><a href="#" onclick="if (confirm('Xác nhận đăng xuất?')) {
-                                            location.href = 'admin.php?controller=home&amp;action=logout';
+                                            location.href = 'logout.php';
                                             return true;
                                         } else {
                                             return false;
@@ -30,6 +32,10 @@
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
+            <?php 
+            
+            }
+            ?>
     </div><!-- /.container-fluid -->
 </nav>
 <style type="text/css">

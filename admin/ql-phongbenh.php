@@ -13,7 +13,7 @@
                         <div class="col-sm-9 col-xs-12 pull-right">
                             <div class="row">
                                 <!-- BEGIN CONTENT -->
-                                 <?php require('ql-ct-phongbenh.php'); ?>
+                                 <?php require('ql-phongbenh-ct.php'); ?>
                                 <!-- END CONTENT -->
                             </div>
                         </div><!--/span-->            
