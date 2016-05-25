@@ -15,3 +15,5 @@ if ($login->getSuccess()) {
     //Thong bao loi
     echo "<script>alert('Tài khoản mật khẩu không chính xác!');location.href='login.php';</script>";
 }
+
+mysqli_close($conn);

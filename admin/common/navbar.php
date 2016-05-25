@@ -12,6 +12,7 @@
         </div>
 
         <?php
+            session_start();
             if(isset($_SESSION['login_user'])){
         ?>
             <!-- Collect the nav links, forms, and other content for toggling -->
