@@ -1,4 +1,4 @@
-<?php
+<<?php
 
 class Thuoc {
 
@@ -49,6 +49,9 @@ class Thuoc {
             $this->message = "Error deleting record: " . mysqli_error($this->mysqli);
         }
     }
+   public function editRow($id, $ten, $mo_ta, $gia_bh, $gia_thuong, $dvt){
+      
+   }
 
     public function getResults() {
         return $this->result;

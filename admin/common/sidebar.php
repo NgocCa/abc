@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div c<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
             <a href="index.php"><i class="glyphicon glyphicon-th-large"></i>&nbsp;Trang chủ</a>

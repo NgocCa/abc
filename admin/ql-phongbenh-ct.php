@@ -1,4 +1,6 @@
-
+<?php
+include('xl-phong-ht.php')
+?>
 <style type="text/css">
     .table th, .table td {
         text-align: center;
@@ -21,20 +23,53 @@
             <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Mã phòng</th>
-                    <th>Số lượng giường</th>
+                    <th>Số phòng</th>
+                    <th>Tên phòng</th>
+                    <th>Giá</th>
                     <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
+            <?php
+            $stt = 1;
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
                 <tr>
-                    <td>1</td>
-                    <td>101/C1</td>
-                    <td>10</td>
-                    <td>Xem chi tiết | <br/> Sửa | Xóa</td>
+                    <td><?= $stt++ ?></td>
+                    <td><?= $row['SO_PHONG'] ?></td>
+                    <td><?= $row['TEN_PHONG'] ?></td>
+                    <td><?= $row['GIA'] ?></td>
+                    
+                    
+                    <td>
+                        <a href="#" data-toggle="modal" data-target="#phong_<?=$row['SO_PHONG']?>">Xem</a> | <a href="" >Sửa</a> | <a href=""> Xóa</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="phong_<?=$row['SO_PHONG']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Thông tin Phòng <?=$row['SO_PHONG'] ?></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Mã phòng: <?=$row['SO_PHONG'] ?> <br/>
+                                        Tên phòng: <?=$row['TEN_PHONG'] ?> <br/>
+                                        Giá: <?=number_format($row['GIA'],0,".",",") ?> <br/>
+                                        
+                                      
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
-  
-            </tbody>
+                <?php
+            }
+            ?>
+        </tbody>
         </table>
 
         <div class="text-right">

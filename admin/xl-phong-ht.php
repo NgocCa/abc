@@ -1,5 +1,3 @@
-<?php
-
 
 include ("../connect.php");
 include ("./controllers/Phong.php");
